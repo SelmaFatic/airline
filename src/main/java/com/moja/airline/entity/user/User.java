@@ -1,8 +1,12 @@
 package com.moja.airline.entity.user;
 
+import com.moja.airline.entity.destination.Destination;
+import com.moja.airline.entity.ticket.Ticket;
+
 import javax.persistence.*;
 import java.io.Serializable;
-import java.util.Objects;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "users", schema = "Airline")
@@ -10,7 +14,8 @@ public class User implements Serializable {
     @Id
     @Basic(optional = false)
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    @Column(name="Id")
+    private Long Id;
 
     @Basic(optional = false)
     @Column(name = "first_name")
@@ -36,15 +41,31 @@ public class User implements Serializable {
     @Column(name = "role")
     private String role;
 
+
+    @ManyToMany(mappedBy = "users")
+    private List<Ticket>ticket;
+
+
+
+
     public User() {
     }
 
+
+    public List<Ticket> getTickets() {
+        return ticket;
+    }
+
+    public void setTickets(List<Ticket> tickets) {
+        this.ticket = tickets;
+    }
+
     public Long getId() {
-        return id;
+        return Id;
     }
 
     public void setId(Long id) {
-        this.id = id;
+        this.Id = id;
     }
 
     public String getFirstName() {
@@ -97,7 +118,7 @@ public class User implements Serializable {
 
     @Override
     public String toString() {
-        return firstName + "  " + lastName + " [" + id + "]";
+        return firstName + "  " + lastName + " [" + Id + "]";
     }
 
     @Override
@@ -107,11 +128,11 @@ public class User implements Serializable {
 
         User user = (User) o;
 
-        return id != null ? id.equals(user.id) : user.id == null;
+        return Id != null ? Id.equals(user.Id) : user.Id == null;
     }
 
     @Override
     public int hashCode() {
-        return id != null ? id.hashCode() : 0;
+        return Id != null ? Id.hashCode() : 0;
     }
 }

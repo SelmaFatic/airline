@@ -1,4 +1,4 @@
-package com.moja.airline.security.user;
+package com.moja.airline.security;
 
 import com.moja.airline.entity.user.User;
 import org.springframework.security.core.GrantedAuthority;
@@ -26,7 +26,7 @@ public class CustomUserDetails implements UserDetails {
         return user.getPassword();
     }
 
-    //user -> semra
+
     @Override
     public String getUsername() {
         return user.getUsername();

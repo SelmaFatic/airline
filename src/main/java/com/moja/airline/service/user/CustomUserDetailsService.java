@@ -1,13 +1,16 @@
-package com.moja.airline.service;
+package com.moja.airline.service.user;
 
 import com.moja.airline.entity.user.User;
 import com.moja.airline.entity.user.UserRepository;
-import com.moja.airline.security.user.CustomUserDetails;
+import com.moja.airline.security.CustomUserDetails;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.stereotype.Service;
 
+
+@Service
 public class CustomUserDetailsService implements UserDetailsService {
     @Autowired
     private UserRepository userRepository;
