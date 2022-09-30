@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Making new reservation</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+</head>
+<body>
+
+
+</div>
+<div class="container my-2">
+    <h1>Your ticket is ready</h1>
+    <h3>The details about your ticket</h3>
+    <table class="table table-striped table-responsive-md">
+        <thead>
+        <tr>
+
+            <th>Date of arrival</th>
+            <th>Date of departure</th>
+            <th>Name</th>
+            <th>Number of passengers</th>
+            <th>Surname</th>
+            <th>Your destination</th>
+
+        </tr>
+
+        </thead>
+        <tbody>
+        <tr th:each="ticketList:${ticket}">
+            <td th:text="${ticketList.getDate_of_arrival()}"></td>
+            <td th:text="${ticketList.getDate_of_departure()}"></td>
+            <td th:text="${ticketList.getSurname()}"></td>
+            <td th:text="${ticketList.getNumber_of_passengers()}"></td>
+            <td th:text="${ticketList.getName()}"></td>
+            <td th:text="${ticketList.getYour_destination()}"></td>
+
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>
+
+
